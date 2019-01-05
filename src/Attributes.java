@@ -1,5 +1,5 @@
 //从者所具有的属性
-public enum Attributes {
+public enum Attributes implements Screenable{
     Necromancer("死灵",1),
     Magic("魔性",2),
     King("王",3),
@@ -29,7 +29,7 @@ public enum Attributes {
         this.index = index;
     }
 
-    public static Attributes getAttributesByName(String name){
+    public static Attributes byName(String name){
         for(Attributes a: Attributes.values()){
             if(a.name.equals(name)){
                 return a;

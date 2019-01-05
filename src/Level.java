@@ -1,26 +1,24 @@
-//从者所属阵营
-public enum Group implements Screenable{
-    SKY("天",1),
-    GROUND("地",2),
-    PERSON("人",3);
+public enum Level implements Screenable{
+    X_A("x-a",1);
 
-    private String name;
-    private int index;
+    String name;
+    int index;
 
-    private Group(String name, int index){
+    private Level(String name, int index){
         this.name = name;
         this.index = index;
     }
 
-    public static Group byName(String name){
-        for(Group g: Group.values()){
-            if (g.name.equals(name)){
-                return g;
+    public static Level byName(String name){
+        for(Level l : Level.values()){
+            if(l.name.equals(name)){
+                return l;
             }
         }
         return null;
     }
 
+    @Override
     public String getName() {
         return name;
     }
