@@ -1,12 +1,18 @@
+import java.util.ArrayList;
+
 public enum Enemy implements Screenable{
-    Sergeant("骷髅兵",new Attributes[]{Attributes.byName("死灵"), Attributes.byName("魔性")});
+    Sergeant("骷髅兵",new String[]{"死灵","魔性"});
 
     String name;
-    Attributes[] attributes_list;
+    ArrayList<Attributes> attributes_list;
 
-    private Enemy(String name, Attributes[] list){
+    private Enemy(String name, String[] list){
         this.name = name;
-        this.attributes_list = list;
+        this.attributes_list = new ArrayList<>();
+        for(String s : list){
+            Attributes a = Attributes.byName(s);
+            attributes_list.add(a);
+        }
     }
 
     private Enemy(String name){
@@ -22,6 +28,7 @@ public enum Enemy implements Screenable{
         return null;
     }
 
+    @Override
     public String getName() {
         return name;
     }
@@ -30,11 +37,11 @@ public enum Enemy implements Screenable{
         this.name = name;
     }
 
-    public Attributes[] getAttributes_list() {
+    public ArrayList<Attributes> getAttributes_list() {
         return attributes_list;
     }
 
-    public void setAttributes_list(Attributes[] attributes_list) {
+    public void setAttributes_list(ArrayList<Attributes> attributes_list) {
         this.attributes_list = attributes_list;
     }
 }
