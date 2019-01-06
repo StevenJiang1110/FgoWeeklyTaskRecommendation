@@ -6,9 +6,8 @@ public class Main {
         Rules rule = Rules.Rule1;
         Rules rules = Rules.Rule2;
 
-        System.out.println(rule);
-        System.out.println(rules);
-
-        Enemy enemy = Enemy.Sergeant;
+        for (Rules r : Rules.values()){
+            System.out.println(r);
+        }
     }
 }

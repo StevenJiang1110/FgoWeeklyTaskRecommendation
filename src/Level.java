@@ -1,5 +1,13 @@
 public enum Level implements Screenable{
-    X_A("x-a",1);
+    X_A("x-a",1),
+    X_B("x-b",2),
+    X_C("x-c",3),
+    X_D("x-d",4),
+    X_E("x-e",5),
+    X_F("x-f",6),
+    X_G("x-g",7),
+    ZERO("变动坐标点0号",8),
+    ;
 
     String name;
     int index;

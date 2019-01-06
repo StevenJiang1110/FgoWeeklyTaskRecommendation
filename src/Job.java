@@ -1,5 +1,3 @@
-import jdk.nashorn.internal.scripts.JO;
-
 public enum Job implements Screenable{
     Saber("剑",1),
     Archer("弓",2),
