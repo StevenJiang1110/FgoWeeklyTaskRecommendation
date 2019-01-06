@@ -22,7 +22,7 @@ public class InferenceEngine {
 
         HashSet<Screenable> level = new HashSet<>();
         for(Screenable s : current){
-            Screenable screenable = Level.byName(s.getName());
+            Level screenable = Level.byName(s.getName());
             if(screenable != null){
                 level.add(screenable);
             }
@@ -33,17 +33,26 @@ public class InferenceEngine {
         for(Rules r : hitRule){
             System.out.println(r);
         }
-        return current;
+        return level;
     }
 
     public boolean isRuleSatisfied(Rules rule, HashSet<Screenable> current){
         HashSet<Screenable> pred = rule.getPredecessor();
-        for(Screenable s : pred){
-            if(!current.contains(s)){
-                return false;
+        if(rule.getOp() == '&'){
+            for(Screenable s : pred){
+                if(!current.contains(s)){
+                    return false;
+                }
             }
+            return true;
+        }else{
+            for(Screenable s : pred){
+                if(current.contains(s)){
+                    return true;
+                }
+            }
+            return false;
         }
-        return true;
     }
 
 }
