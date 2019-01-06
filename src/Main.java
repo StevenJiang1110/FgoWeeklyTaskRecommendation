@@ -8,5 +8,7 @@ public class Main {
 
         System.out.println(rule);
         System.out.println(rules);
+
+        Enemy enemy = Enemy.Sergeant;
     }
 }

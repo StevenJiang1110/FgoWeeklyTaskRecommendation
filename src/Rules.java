@@ -14,19 +14,13 @@ public enum Rules {
         this.predecessor = new ArrayList<>();
         this.post = new ArrayList<>();
         for(String s: pred){
-            Screenable screen = Group.byName(s);
-            if(screen == null) screen = Attributes.byName(s);
-            if(screen == null) screen = Enemy.byName(s);
-            if(screen == null) screen = Level.byName(s);
-            if(screen == null) continue;
+            Screenable screen = Screenable.byName(s);
+            if(s == null) continue;
             this.predecessor.add(screen);
         }
 
         for(String s: post){
-            Screenable screen = Group.byName(s);
-            if(screen == null) screen = Attributes.byName(s);
-            if(screen == null) screen = Enemy.byName(s);
-            if(screen == null) screen = Level.byName(s);
+            Screenable screen = Screenable.byName(s);
             if(screen == null) continue;
             this.post.add(screen);
         }
